@@ -64,3 +64,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## 実行コマンド例
+
+### ライブラリインストール
+docker compose exec -it laravel composer require openai-php/laravel
+### artisan
+docker compose exec -it laravel php artisan vendor:publish --provider="OpenAI\Laravel\ServiceProvider"
+### npm
+docker compose exec -it laravel npm run dev
