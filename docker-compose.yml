@@ -50,20 +50,14 @@ services:
       MH_UI_WEB_PATH: mailhog
     restart: on-failure
 
-  adminer:
-    image: adminer
-    environment:
-      ADMINER_DESIGN: lucas-sandery
-      ADMINER_DEFAULT_SERVER: host.docker.internal:33066
-    restart: on-failure
-
   db:
     image: mysql:8
     ports: 
       - "3306:3306"
+    hostname: docker-db
     environment:
       MYSQL_ROOT_PASSWORD: pass
-      MYSQL_DATABASE: test
+      MYSQL_DATABASE: local
       MYSQL_USER: docker
       MYSQL_PASSWORD: docker
       TZ: 'Asia/Tokyo'
@@ -72,3 +66,13 @@ services:
       - /var/lib/mysql
     restart: on-failure
 
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      ADMINER_DESIGN: lucas-sandery
+      ADMINER_DEFAULT_SERVER: db
+    restart: on-failure
