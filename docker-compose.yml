@@ -33,8 +33,6 @@ services:
     volumes:
       - .:/var/www/portfolio:cached
     command: npm help
-    environment:
-      MIX_APP_ENV: local
 
   redis:
     image: "redis:latest"

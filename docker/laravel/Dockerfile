@@ -17,6 +17,9 @@ RUN apt-get update \
 RUN git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
   && docker-php-ext-install redis \
   && rm -rf /usr/src/php/ext/redis
+# コンテナ内でnpmコマンド叩く用
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+  && apt-get install -y nodejs
 
 RUN apt-get update \
   && apt-get install -y imagemagick poppler-utils jpegoptim optipng \
