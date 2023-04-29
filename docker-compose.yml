@@ -54,7 +54,7 @@ services:
     image: mysql:8
     ports: 
       - "3306:3306"
-    hostname: docker-db
+    hostname: host.docker.internal
     environment:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: local
