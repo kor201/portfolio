@@ -20,6 +20,8 @@ services:
   laravel:
     build: ./docker/laravel
     working_dir: /var/www/portfolio
+    ports:
+      - "5173:5173"
     volumes:
       - ./docker/laravel/src/php.ini:/usr/local/etc/php/php.ini
       - ./docker/laravel/src/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
