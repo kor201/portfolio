@@ -5,6 +5,8 @@ docker compose exec -it laravel composer require openai-php/laravel
 docker compose exec -it laravel php artisan vendor:publish --provider="OpenAI\Laravel\ServiceProvider"
 ### マイグレーション
 docker compose exec -it laravel php artisan migrate
+### vueインストール
+docker-compose exec laravel npm install --save-dev vue @vitejs/plugin-vue
 ### npm
 docker compose exec -it laravel npm run dev
 ### https化key作成

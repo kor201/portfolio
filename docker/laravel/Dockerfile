@@ -1,4 +1,5 @@
 FROM php:8.1-fpm
+EXPOSE 5173
 RUN apt-get update \
   && apt-get install -y libzip-dev unzip  wget git unzip libicu-dev libmemcached-dev zlib1g-dev libmagickwand-dev \
   && docker-php-ext-install zip pdo_mysql sockets opcache intl  \
@@ -26,7 +27,5 @@ RUN apt-get update \
   && ln -s /usr/bin/optipng /usr/local/bin/optipng \
   && ln -s /usr/bin/jpegoptim /usr/local/bin/jpegoptim \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
